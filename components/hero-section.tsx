@@ -5,7 +5,7 @@ import Image from "next/image"
 import { ArrowRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/jorgemendieta'
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/jorgemendieta' : '')
 
 export function HeroSection() {
   const [scrollY, setScrollY] = useState(0)

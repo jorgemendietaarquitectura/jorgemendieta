@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Building2, Heart, Leaf, Users, ArrowRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/jorgemendieta'
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/jorgemendieta' : '')
 
 // Helper para agregar basePath solo a rutas locales
 const getImageSrc = (src: string) => {
@@ -46,18 +46,20 @@ const categories = [
 const allProjects = [
   // Decoración Interiores (3 proyectos)
   {
-    title: "Centro Médico San Lucas - Interiores",
+    title: "Proyecto 1",
     category: "Decoración Interiores",
     type: "decoracion",
     area: "3,200 m²",
     year: "2023",
     images: [
-      "/proyectos/1.jpg",
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "/proyectos/decoracionInteriores/proyecto1/1.jpg",
+      "/proyectos/decoracionInteriores/proyecto1/2.jpg",
+      "/proyectos/decoracionInteriores/proyecto1/3.jpg",
+      "/proyectos/decoracionInteriores/proyecto1/4.jpg",
+      "/proyectos/decoracionInteriores/proyecto1/5.jpg",
     ],
-    description: "Diseño interior completo con paleta de colores terapéuticos y mobiliario ergonómico",
-    features: ["Paleta terapéutica", "Mobiliario ergonómico", "Iluminación natural"],
+    description: "Descripción del proyecto 1",
+    features: ["Característica 1", "Característica 2", "Característica 3"],
   },
   {
     title: "Clínica Dental Moderna",
@@ -73,35 +75,24 @@ const allProjects = [
     description: "Interiores modernos con tecnología de vanguardia y espacios acogedores",
     features: ["Tecnología avanzada", "Espacios acogedores", "Diseño minimalista"],
   },
-  {
-    title: "Hospital Pediátrico Colorido",
-    category: "Decoración Interiores",
-    type: "decoracion",
-    area: "2,500 m²",
-    year: "2022",
-    images: [
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    ],
-    description: "Diseño interior lúdico y colorido para crear un ambiente amigable para niños",
-    features: ["Diseño lúdico", "Colores vibrantes", "Espacios interactivos"],
-  },
+
 
   // Infraestructura Clínica (3 proyectos)
   {
-    title: "Centro de Diagnóstico Avanzado",
+    title: "Proyecto 1",
     category: "Infraestructura Clínica",
     type: "infraestructura",
     area: "5,000 m²",
     year: "2023",
     images: [
-      "/proyectos/2.jpg",
-      "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "/proyectos/infraestructuraClinica/proyecto1/1.jpg",
+      "/proyectos/infraestructuraClinica/proyecto1/2.jpg",
+      "/proyectos/infraestructuraClinica/proyecto1/3.jpg",
+      "/proyectos/infraestructuraClinica/proyecto1/4.jpg",
+      "/proyectos/infraestructuraClinica/proyecto1/5.jpg",
     ],
-    description: "Infraestructura completa con laboratorios, salas de imagenología y consultorios",
-    features: ["Laboratorios avanzados", "Salas de imagenología", "Consultorios especializados"],
+    description: "Descripción del proyecto 1",
+    features: ["Característica 1", "Característica 2", "Característica 3"],
   },
   {
     title: "Hospital de Emergencias 24/7",
@@ -116,20 +107,6 @@ const allProjects = [
     ],
     description: "Infraestructura de emergencias con quirófanos, UCI y servicios críticos",
     features: ["Quirófanos de emergencia", "UCI completa", "Servicios críticos"],
-  },
-  {
-    title: "Centro de Rehabilitación Integral",
-    category: "Infraestructura Clínica",
-    type: "infraestructura",
-    area: "3,500 m²",
-    year: "2022",
-    images: [
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    ],
-    description: "Infraestructura especializada en rehabilitación física y ocupacional",
-    features: ["Gimnasio terapéutico", "Piscina terapéutica", "Salas de terapia"],
   },
 
   // Paisajismo (3 proyectos)
@@ -161,63 +138,42 @@ const allProjects = [
     description: "Paisajismo contemplativo con espacios de meditación y reflexión",
     features: ["Espacios de meditación", "Jardín zen", "Áreas contemplativas"],
   },
-  {
-    title: "Jardín Botánico Hospitalario",
-    category: "Paisajismo",
-    type: "paisajismo",
-    area: "4,200 m²",
-    year: "2022",
-    images: [
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    ],
-    description: "Jardín botánico con colección de plantas medicinales y aromáticas",
-    features: ["Plantas medicinales", "Huerto terapéutico", "Invernadero"],
-  },
+
 
   // Arquitectura (3 proyectos)
   {
-    title: "Hospital de Especialidades",
+    title: "Proyecto 1",
     category: "Arquitectura",
     type: "arquitectura",
     area: "15,000 m²",
     year: "2023",
     images: [
-      "/proyectos/4.jpg",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "/proyectos/arquitectura/proyecto1/1.jpg",
+      "/proyectos/arquitectura/proyecto1/2.jpg",
+      "/proyectos/arquitectura/proyecto1/3.jpg",
+      "/proyectos/arquitectura/proyecto1/4.jpg",
+      "/proyectos/arquitectura/proyecto1/5.jpg",
+      "/proyectos/arquitectura/proyecto1/6.jpg",
     ],
-    description: "Arquitectura hospitalaria moderna con diseño bioclimático y sostenible",
-    features: ["Diseño bioclimático", "Arquitectura sostenible", "Espacios flexibles"],
+    description: "Descripción del proyecto 1",
+    features: ["Característica 1", "Característica 2", "Característica 3"],
   },
   {
-    title: "Clínica Ambulatoria Integral",
+    title: "Proyecto 2",
     category: "Arquitectura",
     type: "arquitectura",
     area: "6,500 m²",
     year: "2023",
     images: [
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "/proyectos/arquitectura/proyecto2/1.jpg",
+      "/proyectos/arquitectura/proyecto2/2.jpg",
+      "/proyectos/arquitectura/proyecto2/3.jpg",
+      "/proyectos/arquitectura/proyecto2/4.jpg",
+      "/proyectos/arquitectura/proyecto2/5.jpg",
+      "/proyectos/arquitectura/proyecto2/6.jpg",
     ],
-    description: "Arquitectura funcional optimizada para atención ambulatoria especializada",
-    features: ["Arquitectura funcional", "Flujos optimizados", "Espacios modulares"],
-  },
-  {
-    title: "Centro Médico Comunitario",
-    category: "Arquitectura",
-    type: "arquitectura",
-    area: "3,800 m²",
-    year: "2022",
-    images: [
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    ],
-    description: "Arquitectura comunitaria con enfoque en accesibilidad y bienestar social",
-    features: ["Accesibilidad universal", "Bienestar social", "Integración comunitaria"],
+    description: "Descripción del proyecto 2",
+    features: ["Característica 1", "Característica 2", "Característica 3"],
   },
 ]
 
@@ -238,6 +194,7 @@ export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("todos")
   const [selectedProject, setSelectedProject] = useState<any>(null)
   const [showGallery, setShowGallery] = useState(false)
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null)
 
   const filteredProjects =
     activeCategory === "todos" ? allProjects : allProjects.filter((project) => project.type === activeCategory)
@@ -257,7 +214,7 @@ export function ProjectsSection() {
   }
 
   return (
-    <section id="projects" className="relative py-32 overflow-hidden">
+    <section id="projects" className="relative py-16 md:py-32 overflow-hidden">
       {/* Dynamic Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -272,60 +229,60 @@ export function ProjectsSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20 animate-on-scroll">
-          <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6">
-            <Building2 className="w-5 h-5 text-emerald-400 mr-2" />
-            <span className="text-white font-medium">Proyectos Destacados</span>
+        <div className="text-center mb-12 md:mb-20 animate-on-scroll">
+          <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-4 md:mb-6">
+            <Building2 className="w-4 h-4 md:w-5 md:h-5 text-emerald-400 mr-2" />
+            <span className="text-white font-medium text-sm md:text-base">Proyectos Destacados</span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight px-2">
             Transformaciones
             <span className="block bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
               Extraordinarias
             </span>
           </h2>
 
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-12">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-4">
             Cada espacio cuenta una historia única de sanación, belleza y transformación que impacta vidas
           </p>
 
           {/* Category Filter Buttons */}
-          <div className="flex flex-col items-center gap-8 mb-16">
-            {/* Botones principales - 4 categorías */}
-            <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-col items-center gap-6 md:gap-8 mb-12 md:mb-16">
+            {/* Botones principales - 4 categorías en grid de 2 columnas siempre */}
+            <div className="grid grid-cols-2 gap-3 md:gap-6 w-full max-w-2xl mx-auto">
               {categories.slice(1).map((category) => (
                 <button
                   key={category.id}
                   onClick={() => handleCategoryChange(category.id)}
-                  className={`min-w-[200px] px-6 py-4 rounded-2xl font-semibold transition-all duration-500 text-base border-2 ${activeCategory === category.id
-                    ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-2xl shadow-emerald-500/30 scale-110 border-emerald-400"
-                    : "bg-white/15 backdrop-blur-md text-white border-white/40 hover:bg-white/25 hover:scale-105 hover:border-white/60"
+                  className={`w-full px-4 md:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl font-semibold transition-all duration-500 text-sm md:text-base border-2 ${activeCategory === category.id
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-2xl shadow-emerald-500/30 md:scale-105 border-emerald-400"
+                    : "bg-white/15 backdrop-blur-md text-white border-white/40 hover:bg-white/25 md:hover:scale-105 hover:border-white/60"
                     }`}
                 >
-                  <div className="flex items-center justify-center space-x-3">
+                  <div className="flex items-center justify-center space-x-2 md:space-x-3">
                     <div className={`${activeCategory === category.id ? "text-white" : "text-emerald-300"}`}>
                       {category.icon}
                     </div>
-                    <span className="font-medium">{category.name}</span>
+                    <span className="font-medium text-xs md:text-base">{category.name}</span>
                   </div>
                 </button>
               ))}
             </div>
 
             {/* Botón "Todos los Proyectos" separado */}
-            <div className="pt-6 border-t border-white/20 w-full max-w-md">
+            <div className="pt-4 md:pt-6 border-t border-white/20 w-full max-w-md">
               <button
                 onClick={() => handleCategoryChange("todos")}
-                className={`w-full px-8 py-5 rounded-2xl font-bold transition-all duration-500 text-lg border-2 ${activeCategory === "todos"
-                  ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-2xl shadow-emerald-500/40 scale-105 border-emerald-300"
-                  : "bg-white/20 backdrop-blur-md text-white border-white/50 hover:bg-white/30 hover:scale-105 hover:border-white/70"
+                className={`w-full px-6 md:px-8 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold transition-all duration-500 text-base md:text-lg border-2 ${activeCategory === "todos"
+                  ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-2xl shadow-emerald-500/40 md:scale-105 border-emerald-300"
+                  : "bg-white/20 backdrop-blur-md text-white border-white/50 md:hover:bg-white/30 md:hover:scale-105 hover:border-white/70"
                   }`}
               >
-                <div className="flex items-center justify-center space-x-3">
+                <div className="flex items-center justify-center space-x-2 md:space-x-3">
                   <div className={`${activeCategory === "todos" ? "text-white" : "text-emerald-300"}`}>
                     {categories[0].icon}
                   </div>
-                  <span>{categories[0].name}</span>
+                  <span className="text-sm md:text-base">{categories[0].name}</span>
                 </div>
               </button>
             </div>
@@ -333,8 +290,8 @@ export function ProjectsSection() {
         </div>
 
         {/* Help message */}
-        <div className="text-center mb-8">
-          <div className="text-white/80 text-lg">
+        <div className="text-center mb-6 md:mb-8">
+          <div className="text-white/80 text-sm md:text-lg px-4">
             💡 Usa los botones de filtro arriba para cambiar categorías
           </div>
         </div>
@@ -469,7 +426,11 @@ export function ProjectsSection() {
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {selectedProject.images.map((image: string, index: number) => (
-                  <div key={index} className="relative group">
+                  <div
+                    key={index}
+                    className="relative group cursor-pointer"
+                    onClick={() => setFullscreenImage(image)}
+                  >
                     <Image
                       src={getImageSrc(image)}
                       alt={`${selectedProject.title} - Imagen ${index + 1}`}
@@ -498,6 +459,34 @@ export function ProjectsSection() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de imagen en pantalla completa */}
+      {fullscreenImage && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+          onClick={() => setFullscreenImage(null)}
+        >
+          <button
+            onClick={() => setFullscreenImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-2"
+            aria-label="Cerrar"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="relative max-w-[95vw] max-h-[95vh] w-full h-full flex items-center justify-center">
+            <Image
+              src={getImageSrc(fullscreenImage)}
+              alt="Imagen en pantalla completa"
+              fill
+              className="object-contain"
+              sizes="95vw"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}

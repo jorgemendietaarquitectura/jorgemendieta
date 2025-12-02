@@ -32,7 +32,7 @@ export function ContactSection() {
             <div className="space-y-8">
               {[
                 { icon: <Mail className="w-6 h-6" />, label: "Email", value: "contacto@jorgemendieta.com" },
-                { icon: <Phone className="w-6 h-6" />, label: "Teléfono", value: "+57 312 545 5451" },
+                { icon: <Phone className="w-6 h-6" />, label: "Teléfono", value: "+573003608433" },
                 { icon: <MapPin className="w-6 h-6" />, label: "Ubicación", value: "Bogotá, Colombia" },
               ].map((contact, index) => (
                 <div key={index} className="flex items-center space-x-6 group">

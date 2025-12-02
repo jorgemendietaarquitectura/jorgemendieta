@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Award, Leaf } from "lucide-react"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/jorgemendieta'
+
 export function AboutSection() {
   return (
     <section id="about" className="py-32 bg-gradient-to-br from-gray-50 to-emerald-50/30">
@@ -52,7 +54,7 @@ export function AboutSection() {
           <div className="relative">
             <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-emerald-500/20" style={{ height: '600px' }}>
               <Image
-                src="/SobreMi.jpg"
+                src={`${basePath}/SobreMi.jpg`}
                 alt="Jorge Mendieta - Arquitecto Paisajista"
                 fill
                 className="object-cover"

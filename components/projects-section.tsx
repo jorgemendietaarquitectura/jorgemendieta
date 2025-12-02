@@ -5,6 +5,16 @@ import Image from "next/image"
 import { Building2, Heart, Leaf, Users, ArrowRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/jorgemendieta'
+
+// Helper para agregar basePath solo a rutas locales
+const getImageSrc = (src: string) => {
+  if (src.startsWith('http://') || src.startsWith('https://')) {
+    return src
+  }
+  return `${basePath}${src}`
+}
+
 const categories = [
   {
     id: "todos",
@@ -251,7 +261,7 @@ export function ProjectsSection() {
       {/* Dynamic Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={backgroundImages[activeCategory as keyof typeof backgroundImages] || "/placeholder.svg"}
+          src={backgroundImages[activeCategory as keyof typeof backgroundImages] || getImageSrc("/placeholder.svg")}
           alt="Fondo de jardín hospitalario"
           fill
           className="object-cover transition-all duration-1000"
@@ -338,7 +348,7 @@ export function ProjectsSection() {
             >
               <div className="relative overflow-hidden">
                 <Image
-                  src={project.images[0] || "/placeholder.svg"}
+                  src={getImageSrc(project.images[0] || "/placeholder.svg")}
                   alt={project.title}
                   width={600}
                   height={400}
@@ -366,7 +376,7 @@ export function ProjectsSection() {
                     {project.images.slice(0, 3).map((img, imgIndex) => (
                       <div key={imgIndex} className="w-12 h-8 rounded overflow-hidden border border-white/30">
                         <Image
-                          src={img || "/placeholder.svg"}
+                          src={getImageSrc(img || "/placeholder.svg")}
                           alt={`${project.title} ${imgIndex + 1}`}
                           width={48}
                           height={32}
@@ -461,7 +471,7 @@ export function ProjectsSection() {
                 {selectedProject.images.map((image: string, index: number) => (
                   <div key={index} className="relative group">
                     <Image
-                      src={image}
+                      src={getImageSrc(image)}
                       alt={`${selectedProject.title} - Imagen ${index + 1}`}
                       width={400}
                       height={300}

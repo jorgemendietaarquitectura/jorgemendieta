@@ -29,7 +29,10 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          # Forzar instalación de binarios nativos de lightningcss
+          npm install lightningcss@latest --save-dev --force || npm install lightningcss --save-dev
 
       - name: Build
         run: npm run build

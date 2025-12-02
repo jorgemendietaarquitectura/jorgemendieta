@@ -61,21 +61,6 @@ const allProjects = [
     description: "Descripción del proyecto 1",
     features: ["Característica 1", "Característica 2", "Característica 3"],
   },
-  {
-    title: "Clínica Dental Moderna",
-    category: "Decoración Interiores",
-    type: "decoracion",
-    area: "800 m²",
-    year: "2023",
-    images: [
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    ],
-    description: "Interiores modernos con tecnología de vanguardia y espacios acogedores",
-    features: ["Tecnología avanzada", "Espacios acogedores", "Diseño minimalista"],
-  },
-
 
   // Infraestructura Clínica (3 proyectos)
   {
@@ -94,49 +79,39 @@ const allProjects = [
     description: "Descripción del proyecto 1",
     features: ["Característica 1", "Característica 2", "Característica 3"],
   },
-  {
-    title: "Hospital de Emergencias 24/7",
-    category: "Infraestructura Clínica",
-    type: "infraestructura",
-    area: "8,000 m²",
-    year: "2023",
-    images: [
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    ],
-    description: "Infraestructura de emergencias con quirófanos, UCI y servicios críticos",
-    features: ["Quirófanos de emergencia", "UCI completa", "Servicios críticos"],
-  },
 
   // Paisajismo (3 proyectos)
   {
-    title: "Jardín Terapéutico Hospital General",
+    title: "Proyecto 1",
     category: "Paisajismo",
     type: "paisajismo",
     area: "2,800 m²",
     year: "2023",
     images: [
-      "/proyectos/3.jpg",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "/proyectos/paisajismo/proyecto1/1.jpg",
+      "/proyectos/paisajismo/proyecto1/2.jpg",
+      "/proyectos/paisajismo/proyecto1/3.jpg",
+      "/proyectos/paisajismo/proyecto1/4.jpg",
+      "/proyectos/paisajismo/proyecto1/5.jpg",
     ],
-    description: "Jardín terapéutico con senderos, áreas de descanso y plantas medicinales",
-    features: ["Senderos terapéuticos", "Áreas de descanso", "Plantas medicinales"],
+    description: "Descripción del proyecto 1",
+    features: ["Característica 1", "Característica 2", "Característica 3"],
   },
   {
-    title: "Paisajismo Centro Oncológico",
+    title: "Proyecto 2",
     category: "Paisajismo",
     type: "paisajismo",
     area: "1,500 m²",
     year: "2023",
     images: [
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "/proyectos/paisajismo/proyecto2/1.jpg",
+      "/proyectos/paisajismo/proyecto2/2.jpg",
+      "/proyectos/paisajismo/proyecto2/3.jpg",
+      "/proyectos/paisajismo/proyecto2/4.jpg",
+      "/proyectos/paisajismo/proyecto2/5.jpg",
     ],
-    description: "Paisajismo contemplativo con espacios de meditación y reflexión",
-    features: ["Espacios de meditación", "Jardín zen", "Áreas contemplativas"],
+    description: "Descripción del proyecto 2",
+    features: ["Característica 1", "Característica 2", "Característica 3"],
   },
 
 

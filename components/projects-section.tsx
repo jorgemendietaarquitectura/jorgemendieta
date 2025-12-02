@@ -5,14 +5,11 @@ import Image from "next/image"
 import { Building2, Heart, Leaf, Users, ArrowRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/jorgemendieta' : '')
-
-// Helper para agregar basePath solo a rutas locales
+// Helper para manejar rutas de imágenes
 const getImageSrc = (src: string) => {
-  if (src.startsWith('http://') || src.startsWith('https://')) {
-    return src
-  }
-  return `${basePath}${src}`
+  // Next.js Image component maneja automáticamente el basePath
+  // Solo retornamos la ruta tal cual
+  return src
 }
 
 const categories = [
